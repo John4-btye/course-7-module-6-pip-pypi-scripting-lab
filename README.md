@@ -1,4 +1,3 @@
-
 # Module Lab: Automating Python Projects with Pip, PyPi & Scripting
 
 ## Learning Goals
@@ -146,3 +145,144 @@ After completing this lab, you will:
 ✅ Structure projects for portability and collaboration
 
 These scripting and packaging skills are essential for building automation tools and working in modern Python development workflows.
+
+# Automation Tool: Log Generator
+
+## 📌 Overview
+
+This project implements a lightweight Python automation tool that generates log files based on user-provided input. It demonstrates key concepts including file I/O, scripting, dependency management, and test-driven development using `pytest`.
+
+The tool is designed to be modular, reproducible, and executable from the command line.
+
+---
+
+## ⚙️ Features
+
+- Generates timestamped log files (`log_YYYYMMDD.txt`)
+- Accepts dynamic input via a function
+- Writes structured log entries to a file
+- Validates input and raises appropriate errors
+- Fully tested using `pytest`
+- Tracks dependencies with `requirements.txt`
+
+---
+
+## 📁 Project Structure
+
+```
+course-7-module-6-pip-pypi-scripting-lab/
+│
+├── lib/
+│   ├── __init__.py
+│   └── generate_log.py
+│
+├── testing/
+│   ├── __init__.py
+│   └── test_generate_log.py
+│
+├── requirements.txt
+├── Pipfile
+├── Pipfile.lock
+├── pytest.ini
+└── README.md
+```
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+```
+git clone <your-repo-url>
+cd course-7-module-6-pip-pypi-scripting-lab
+```
+
+2. Install dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+---
+
+## Usage
+
+Run the script from the command line:
+
+```
+python lib/generate_log.py
+```
+
+### Example Output:
+
+```
+Log written to log_20260324.txt
+```
+
+---
+
+## Running Tests
+
+To verify functionality:
+
+```
+pytest
+```
+
+### What the tests cover:
+
+- File creation
+- Filename format (`log_YYYYMMDD.txt`)
+- File content accuracy
+- Input validation (raises `ValueError`)
+- Handling of empty input lists
+
+---
+
+## Implementation Details
+
+- Uses `datetime` for dynamic file naming
+- Writes each log entry on a new line
+- Validates that input is a list
+- Returns the filename for testability
+- Prints a confirmation message after file creation
+
+---
+
+## Dependencies
+
+Dependencies are tracked in:
+
+```
+requirements.txt
+```
+
+To regenerate:
+
+```
+pip freeze > requirements.txt
+```
+
+---
+
+## Best Practices Applied
+
+- Modular function design
+- Separation of concerns
+- Input validation and error handling
+- Test-driven development with `pytest`
+- Reproducible environments via dependency tracking
+
+---
+
+## Author
+
+John Ownby
+
+---
+
+## Notes
+
+- Log files are automatically cleaned up during testing
+- The tool is designed to be easily extendable for future automation tasks
